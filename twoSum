@@ -1,0 +1,30 @@
+import java.util.Map;
+import java.util.HashMap;
+
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+
+        Map<Integer, Integer> mapa = new HashMap();
+
+        for(int i = 0 ; i < nums.length ; i++){
+            int complemento = target - nums[i];
+
+            if(mapa.containsKey(complemento)){
+                return new int[]{mapa.get(complemento),i};
+            }
+            mapa.put(nums[i], i);
+        }
+        return new int[]{};
+    }
+    public static void main(String[] args){
+        int[] parametro1 = {2,7,11,15};
+        int parametro2 = 9;
+
+        Solution sol = new Solution();
+
+        int ret[] = sol.twoSum(parametro1,parametro2);
+
+        System.out.println("Indices: "+ ret[0] + " " + ret[1]);
+    }
+}
